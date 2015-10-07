@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="page-head-line">{{userDataSet.name}}</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Details</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> 
+                <div ng-if="userDataSet.gender=='male'">
+                <img alt="User Pic" src="assets/img/profile-pic-main-male.png" class="img-circle img-responsive"> 
+                </div>
+                <div ng-if="userDataSet.gender=='female'">
+                <img alt="User Pic" src="assets/img/profile-pic-main-female.png" class="img-circle img-responsive"> 
+                </div>
+                </div>
+                
+                <div class=" col-md-9 col-lg-9 "> 
+                    <table class="table table-user-information">
+                    <tbody>
+                        <tr>
+                            <td>Name:</td>
+                            <td>{{userDataSet.name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>{{userDataSet.email}}</td>
+                        </tr>
+                        <tr>
+                            <td>Phone #</td>
+                            <td>{{userDataSet.phone_number}}</td>
+                        </tr>
+                        <tr>
+                            <td>Gender</td>
+                            <td>{{userDataSet.gender}}</td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td>
+                                <address>
+                                    {{userDataSet.address.street_address}},<br>
+                                    {{userDataSet.address.city}},<br>
+                                    {{userDataSet.address.region}},<br>
+                                    {{userDataSet.address.country}}<br>
+                                </address><br>
+                                <a title="View on Map" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger" ng-href="#/usermap/{{userDataSet.id}}"><i class="glyphicon glyphicon-map-marker"></i></a>
+                            </td>
+                        </tr>                   
+                    </tbody>
+                    </table>
+                     
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

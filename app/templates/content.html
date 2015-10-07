@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="page-head-line">User List</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <label>Enter user name to filter list:</label> <input id="userFilter" ng-model="userName" type="text" placeholder="Enter user name">
+            <div class="alert alert-warning">
+                <table class="row-border hover" datatable="ng" style="overflow:scroll;">
+                <thead>
+                    <tr>
+                        <th>Sr.No</th>
+                        <th>Name</th>
+                        <th>Phone #</th>
+                        <th>Email</th>
+                        <th>Country</th>
+                        <th>Gender</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>          
+                <tbody>
+                    <tr ng-repeat="userData in userDataSet | filter:{ name:userName}">
+                        <td>{{$index+1}}</td>
+                        <td>{{userData.name}}</td>
+                        <td>{{userData.phone_number}}</td>
+                        <td>{{userData.email}}</td>                        
+                        <td>{{userData.address.country}}</td>
+                        <td>{{userData.gender}}</td>                        
+                        <td><a ng-href="#/user/{{userData.id}}">View</a></td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
