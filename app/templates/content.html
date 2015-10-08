@@ -7,6 +7,7 @@
     <div class="row">
         <div class="col-md-12">
             <label>Enter user name to filter list:</label> <input id="userFilter" ng-model="userName" type="text" placeholder="Enter user name">
+            <label ng-show="!(userDataSet|filter:{name:userName}).length" style="margin-left:30px;">No matching records found</label>
             <div class="alert alert-warning">
                 <table class="row-border hover" datatable="ng" style="overflow:scroll;">
                 <thead>
@@ -21,7 +22,7 @@
                     </tr>
                 </thead>          
                 <tbody>
-                    <tr ng-repeat="userData in userDataSet | filter:{ name:userName}">
+                    <tr ng-repeat="userData in userDataSet | filter:{name:userName}">
                         <td>{{$index+1}}</td>
                         <td>{{userData.name}}</td>
                         <td>{{userData.phone_number}}</td>

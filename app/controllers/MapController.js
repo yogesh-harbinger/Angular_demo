@@ -2,15 +2,7 @@
  * Map controller
 */
 
-sampleApp.controller('MapController', function($rootScope,$scope,sampleAppLib,$filter,userList,$stateParams) {
-    // Following method uses the json object set in rootscope. This can also be achieved by creating service and then calling service functions to read data from server instead of rootscope
-    // In actual implementation application should fetch data from API
-    /*
-    userID = $stateParams.id;
-    if(userID){
-        $scope.userData = $filter("filter")( $rootScope.userDataSet , {id:parseInt(userID)},true)[0];
-    } */
-
+sampleApp.controller('MapController', function($rootScope,$scope,sampleAppLib,$filter,UserService,$stateParams) {
     // Map Object initialization
     var mapObj;
     $scope.LatLongObj = undefined;
@@ -23,7 +15,7 @@ sampleApp.controller('MapController', function($rootScope,$scope,sampleAppLib,$f
 
     userID = $stateParams.id;
     if(userID){
-        userList.query().$promise.then(function(userListResponse) {
+        UserService.query().$promise.then(function(userListResponse) {
             // Use of angularJS filter functionality to get specific record
             $scope.userData = $filter("filter")( userListResponse , {id:parseInt(userID)},true)[0];
             if(typeof $scope.userData != undefined ){

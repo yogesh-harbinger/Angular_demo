@@ -15,7 +15,7 @@ var sampleApp = angular.module('sampleApp', [
 sampleApp.factory("sampleAppLib", function($q, $window,$http,$location,$route,$rootScope) {
     var baseAPIUrl = 'json/';
     return{
-        userListApi:baseAPIUrl+'user_list.json'        
+        userListApi:baseAPIUrl+'user_list.json',        
     };
 });
 
@@ -81,9 +81,4 @@ sampleApp.config(function($urlRouterProvider,$stateProvider) {
             }
         }
     })
-});
-
-// Resource to get all users data
-sampleApp.factory("userList", function($resource,sampleAppLib) {
-  return $resource(sampleAppLib.userListApi);
 });
