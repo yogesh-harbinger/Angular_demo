@@ -3,19 +3,18 @@
 * Add module names which needs to be pre-loaded
 */
 var sampleApp = angular.module('sampleApp', [
-'ngRoute',
 'ngResource',
-'ui.router',
+'ui.router', // User UI router to load views as per state of application
 'ui.bootstrap',
 'datatables',
 'ngMap',
 ]);
 
 // It can contain constants or some utility functions
-sampleApp.factory("sampleAppLib", function($q, $window,$http,$location,$route,$rootScope) {
+sampleApp.factory("sampleAppLib", function($q, $window,$http,$location,$rootScope) {
     var baseAPIUrl = 'json/';
     return{
-        userListApi:baseAPIUrl+'user_list.json',        
+        userListApi:baseAPIUrl+'user_list.json',
     };
 });
 
@@ -25,10 +24,10 @@ sampleApp.config(function($urlRouterProvider,$stateProvider) {
     var viewsDir = 'app/views/';
     //Default state
     $urlRouterProvider.otherwise("/");
-    
+
     $stateProvider
     .state('/', {
-        url:'/',        
+        url:'/',
         views: {
 			'@' : {
                 templateUrl: templateDir+'layout.html',
@@ -46,7 +45,7 @@ sampleApp.config(function($urlRouterProvider,$stateProvider) {
         }
     })
     .state('/user/:id', {
-        url:'/user/:id',		
+        url:'/user/:id',
         views: {
 			'@' : {
                 templateUrl: templateDir+'layout.html',
@@ -64,7 +63,7 @@ sampleApp.config(function($urlRouterProvider,$stateProvider) {
         }
     })
     .state('/usermap/:id', {
-        url:'/usermap/:id',		
+        url:'/usermap/:id',
         views: {
 			'@' : {
                 templateUrl: templateDir+'layout.html',
