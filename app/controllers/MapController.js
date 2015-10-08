@@ -5,6 +5,7 @@
 sampleApp.controller('MapController', function($rootScope,$scope,sampleAppLib,$filter,UserService,$stateParams) {
     // Map Object initialization
     var mapObj;
+    $scope.recordFound = true;
     $scope.LatLongObj = undefined;
     $scope.$on('mapInitialized', function(event, map) {
         //Basic configuration
@@ -18,7 +19,7 @@ sampleApp.controller('MapController', function($rootScope,$scope,sampleAppLib,$f
         UserService.query().$promise.then(function(userListResponse) {
             // Use of angularJS filter functionality to get specific record
             $scope.userData = $filter("filter")( userListResponse , {id:parseInt(userID)},true)[0];
-            $scope.recordFound = true;            
+                        
             if(typeof $scope.userData != 'undefined'){
                 // As Address is auto-generated they are not valid so passing complete address may not give any latlong object so passing only country
                 $scope.addressString = $scope.userData.address.street_address+',<br>'+$scope.userData.address.city+',<br>'+$scope.userData.address.region+',<br>'+$scope.userData.address.country;
