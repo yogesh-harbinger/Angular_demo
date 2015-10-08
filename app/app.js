@@ -11,7 +11,7 @@ var sampleApp = angular.module('sampleApp', [
 ]);
 
 // It can contain constants or some utility functions
-sampleApp.factory("sampleAppLib", function($q, $window,$http,$location,$rootScope) {
+sampleApp.factory("sampleAppLib", function() {
     var baseAPIUrl = 'json/';
     return{
         userListApi:baseAPIUrl+'user_list.json',
