@@ -4,7 +4,7 @@
 */
 var sampleApp = angular.module('sampleApp', [
 'ngResource',
-'ui.router', // User UI router to load views as per state of application
+'ui.router', // Used UI router to load views as per state of application
 'ui.bootstrap',
 'datatables',
 'ngMap',
