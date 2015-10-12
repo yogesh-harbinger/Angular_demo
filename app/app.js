@@ -1,4 +1,4 @@
-/* Initilization of Sample App
+/* Initialization of Sample App
 * version 1.4.7
 * Add module names which needs to be pre-loaded
 */
@@ -76,6 +76,24 @@ sampleApp.config(function($urlRouterProvider,$stateProvider) {
                 controller: "MapController"
             },
             "footer@/usermap/:id":{
+                templateUrl: templateDir+'footer.html',
+            }
+        }
+    })
+    .state('/test', {
+        url:'/test',
+        views: {
+			'@' : {
+                templateUrl: templateDir+'layout.html',
+            },
+            "header@/test": {
+                templateUrl: templateDir+'header.html'
+            },
+            "content@/test":{
+                templateUrl: viewsDir+'users/test.html',
+                controller: "TestController"
+            },
+            "footer@/test":{
                 templateUrl: templateDir+'footer.html',
             }
         }
